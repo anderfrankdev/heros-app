@@ -1,4 +1,4 @@
-import { AppRouter } from "./heros/router/AppRouter"
+import { AppRouter } from "./router"
 import { Navbar } from "./ui"
 import './App.css'
 
@@ -6,7 +6,6 @@ function App() {
 
   return (
     <div className="app">
-      {Navbar}
       {AppRouter}
     </div>
   )

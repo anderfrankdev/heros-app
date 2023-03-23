@@ -1,5 +1,6 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import { showNav } from "../events"
+import { onLogout } from "../events/onLogout"
 import styles from './navbar.module.css'
 
 const markActiveLink = (itemClass:string) => ({isActive}:any) => {
@@ -12,7 +13,11 @@ const markActiveLink = (itemClass:string) => ({isActive}:any) => {
 const markMarvelLink = markActiveLink(`${styles.logo_marvel} `)
 const markDcLink = markActiveLink(`${styles.logo}`)
 
-export const Navbar = (
+export const Navbar =()=>{
+	
+	const navigate = useNavigate()
+
+	return (
 	<nav className={styles.container+" sm:justify-end"}
 		>
 		<div className={`${styles.menu_icon} sm:flex`} 
@@ -37,10 +42,12 @@ export const Navbar = (
 				<div className="text-purple-800 mr-8 ml-8 sm:m-0 sm:w-full sm:mb-4">
 					Ander
 				</div>	
-				<div className={"cursor-pointer hover:text-purple-600 sm:w-full"}>
+				<div className={"cursor-pointer hover:text-purple-600 sm:w-full"}
+					onClick={onLogout(navigate)}>
 					Logout
 				</div>
 			</div>
 		</div>				
 	</nav>
-)
+	)	
+} 
