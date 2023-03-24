@@ -2,5 +2,28 @@
   @apply 
     w-screen 
     h-screen
+    flex
+    flex-col
     overflow-x-hidden;
+
+}
+
+@media (prefers-color-scheme: light) {
+  nav{
+    background-color: white;
+  }
+  .app{
+    background-image: url("/background-light.svg");
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  nav{
+
+    background-color: black;
+    box-shadow: 1px 1px 8px gray !important;
+  }
+  .app{
+    background-image: url("/background-dark.svg");
+  }
 }

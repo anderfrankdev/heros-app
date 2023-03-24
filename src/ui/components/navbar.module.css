@@ -9,7 +9,6 @@
 		text-2xl
 		h-auto
 		relative;
-
 }
 
 .items_container{
@@ -91,6 +90,7 @@
 
 		box-shadow: 1px 1px 1px 1px black;
 		width: 17rem;
+		z-index: 999;
 	}
 
 	.companies{
