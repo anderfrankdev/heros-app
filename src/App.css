@@ -26,4 +26,16 @@
   .app{
     background-image: url("/background-dark.svg");
   }
+  #hero_info{
+    background: black;
+  }
+  #hero_search_result{
+    background: transparent;
+  }
+  #search_hero{
+    color: white;
+  }
+  #items-container{
+    background: black;
+  }
 }

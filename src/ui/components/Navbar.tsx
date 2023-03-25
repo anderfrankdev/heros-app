@@ -46,7 +46,7 @@ export const Navbar =()=>{
 					Search
 				</NavLink>
 			</div>
-			<div className="flex sm:flex-col sm:w-full items-center sm:mt-10">
+			<div id="nav_session" className="flex sm:flex-col sm:w-full items-center sm:mt-10">
 				<div className="text-purple-800 mr-8 ml-8 sm:m-0 sm:w-full sm:mb-4">
 					Ander
 				</div>	
