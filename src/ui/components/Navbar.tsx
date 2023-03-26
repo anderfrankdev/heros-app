@@ -1,7 +1,7 @@
-import { NavLink, useNavigate } from "react-router-dom"
-import { showNav } from "../events"
-import { onLogout } from "../events/onLogout"
-import styles from './navbar.module.css'
+import { NavLink, useNavigate } from "react-router-dom";
+import { showNav } from "../events";
+import { onLogout } from "../events/onLogout";
+import styles from './navbar.module.css';
 
 const markActiveLink = (itemClass:string) => ({isActive}:any) => {
 
