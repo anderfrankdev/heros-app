@@ -6,7 +6,7 @@ export const AuthContext = createContext({} as any)
 
 export const AuthProvider = ({children}:any)=>{
 
-	const [authState,dispatchAuth] = useReducer(authReducer,initiaState)
+	const [ authState , dispatchAuth ] = useReducer(authReducer,initiaState)
 
 	return (
 		<AuthContext.Provider value={{authState,dispatchAuth}}>

@@ -1,4 +1,6 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../auth/AuthContext";
 import { showNav } from "../events";
 import { onLogout } from "../events/onLogout";
 import styles from './navbar.module.css';
@@ -13,9 +15,9 @@ const markActiveLink = (itemClass:string) => ({isActive}:any) => {
 const markMarvelLink = markActiveLink(`${styles.logo_marvel} `)
 const markDcLink = markActiveLink(`${styles.logo}`)
 
-export const Navbar =()=>{
+export const Navbar = ( ) =>{
 	
-	const navigate = useNavigate()
+	const { authState, dispatchAuth } = useContext(AuthContext)
 
 	return (
 	<nav className={styles.container+" sm:justify-end"}
@@ -48,10 +50,10 @@ export const Navbar =()=>{
 			</div>
 			<div id="nav_session" className="flex sm:flex-col sm:w-full items-center sm:mt-10">
 				<div className="text-purple-800 mr-8 ml-8 sm:m-0 sm:w-full sm:mb-4">
-					Ander
+					{authState.userData.name}
 				</div>	
 				<div className={"cursor-pointer hover:text-purple-600 sm:w-full"}
-					onClick={onLogout(navigate)}>
+					onClick={onLogout(dispatchAuth )}>
 					Logout
 				</div>
 			</div>

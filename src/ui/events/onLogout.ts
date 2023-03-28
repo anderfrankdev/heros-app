@@ -1,5 +1,8 @@
-export const onLogout = ( navigate:Function ) => (event:any) => {
-	navigate('/login',{
-		replace:true
+export const onLogout = ( 
+	dispatchAuth:any
+) => (event:any) => {
+	
+	dispatchAuth({
+		type:"logout"
 	})
 }

@@ -6,6 +6,7 @@ import { SearchPage } from "../pages/SearchPage"
 import { HeroPage } from "../pages/HeroPage"
 
 export const HerosRoutes =()=>{
+
 	
 	return	(
 	<>
