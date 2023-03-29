@@ -1,4 +1,4 @@
-import { afterAll, afterEach, describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { AuthContext } from "../../auth/AuthContext";
 import { initiaState } from "../../auth/data";
 import { PrivateRoute } from "../PrivateRoute";
@@ -13,6 +13,10 @@ vi.mock('react-router-dom',async ()=>{
   		actual,
   		{Navigate:vi.fn(actual.Navigate)}
   	)
+})
+
+beforeEach(()=>{
+	vi.clearAllMocks()
 })
 
 describe.concurrent('Tests in <PrivateRoute/>',()=>{
@@ -59,10 +63,12 @@ describe.concurrent('Tests in <PrivateRoute/>',()=>{
 		expect(screen.getByText("PrivateRoute"))
 			.toBeTruthy()
 		
-	
+		expect(Navigate)
+			.not
+			.toHaveBeenCalled()
 	})
 
-	it.concurrent('Should redirect if logged',async ()=>{
+	it.concurrent('Should redirect if not logged',async ()=>{
 		render(
 			<AuthContext.Provider value={{authState:initiaState}}>
 				<MemoryRouter initialEntries={['/marvel']}>
@@ -84,7 +90,9 @@ describe.concurrent('Tests in <PrivateRoute/>',()=>{
 
 		expect(screen.getByText("PublicRoute"))
 			.toBeTruthy()
-	
+		
+		expect(Navigate)
+			.toHaveBeenCalledOnce()
 	})
 })
 
