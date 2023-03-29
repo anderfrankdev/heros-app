@@ -20,7 +20,7 @@ export const Navbar = ( ) =>{
 	const { authState, dispatchAuth } = useContext(AuthContext)
 
 	return (
-	<nav className={styles.container+" sm:justify-end"}
+	<nav data-testid='navbar' className={styles.container+" sm:justify-end"}
 		>
 		<div className={`${styles.menu_icon} sm:flex`} 
 			onClick={showNav} 
@@ -52,8 +52,8 @@ export const Navbar = ( ) =>{
 				<div className="text-purple-800 mr-8 ml-8 sm:m-0 sm:w-full sm:mb-4">
 					{authState.userData.name}
 				</div>	
-				<div className={"cursor-pointer hover:text-purple-600 sm:w-full"}
-					onClick={onLogout(dispatchAuth )}>
+				<div data-testid="logout" className={"cursor-pointer hover:text-purple-600 sm:w-full"}
+					onClick={onLogout(dispatchAuth)}>
 					Logout
 				</div>
 			</div>

@@ -1,5 +1,5 @@
+import { initiaState } from "../../data"
 import { AuthActions, AuthReducerProps, LoginData } from "../../types"
-
 const falseLogin = [
 	JSON.stringify({
 		email:"anderfrankdev@gmail.com",
@@ -9,7 +9,7 @@ const falseLogin = [
 
 const login = ( 
 	state:AuthReducerProps["state"],
-	loginData:LoginData 
+	loginData:LoginData | null
 ) => {
 	
 	if(!loginData) return state
@@ -27,10 +27,7 @@ const login = (
 }
 
 const logout = (props:any) => {
-	return {
-		isLogged:false,
-		userData:null
-	}
+	return initiaState
 }
 
 export const authActions:AuthActions = {	

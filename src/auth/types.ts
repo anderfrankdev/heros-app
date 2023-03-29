@@ -3,10 +3,12 @@ export interface LoginData{
 	password:string
 }
 
+type actionTypes = "login" | "logout"
+
 export interface AuthReducerProps {
 	action:{
-		type:"login" | "logout",
-		payload:LoginData
+		type:actionTypes,
+		payload:LoginData|null
 	};
 	state:{
 		isLogged:Boolean,
@@ -17,7 +19,7 @@ export interface AuthReducerProps {
 export interface AuthActions {
 	login:
 		(	state:AuthReducerProps["state"],
-			loginData:LoginData
+			loginData:LoginData|null
 		) => AuthReducerProps["state"],
 	logout:(props:any)=>AuthReducerProps["state"]
 }
