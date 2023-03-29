@@ -11,7 +11,7 @@ vi.mock('react-router-dom',async ()=>{
   	return Object.assign(
   		{},
   		actual,
-  		{Navigate:vi.fn().mockImplementation(actual.Navigate)}
+  		{Navigate:vi.fn(actual.Navigate)}
   	)
 })
 
@@ -39,7 +39,10 @@ describe.concurrent('Tests in <PrivateRoute/>',()=>{
 		)
 
 		expect(Navigate)
-			.toHaveBeenCalled()
+			.toHaveBeenCalledWith({
+		       "replace": true,
+		       "to": "/auth/login",
+		     },{})
 
 	})
 
