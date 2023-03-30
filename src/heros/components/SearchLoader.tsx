@@ -5,6 +5,7 @@ export const SearchLoader = memo(({query}:any) =>{
 	return (
 		<div 
 			id='loader'
+			data-testid="loader"
 			className={`
 				flex items-center
 				flex-col w-fit m-auto

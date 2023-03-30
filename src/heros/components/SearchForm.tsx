@@ -11,7 +11,8 @@ export const SearchForm = memo(({search,setForm,styles}:any)=>{
 	}
 
 	return (
-		<form 
+		<form
+			data-testid="search_form"
 			onSubmit={handleSubmit}
 			className={
 				styles.form
@@ -20,6 +21,7 @@ export const SearchForm = memo(({search,setForm,styles}:any)=>{
 			}>
 			<input
 				id="search_hero"
+				data-testid="search_hero"
 				className={
 					styles.searchInput
 					+" focus:outline-blue-500"

@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from "vitest";
+import { describe, expect, it } from "vitest";
 import { AuthContext } from "../../auth/AuthContext";
 import { initiaState } from "../../auth/data";
 import { render, screen } from '../../utils/test-utils'
