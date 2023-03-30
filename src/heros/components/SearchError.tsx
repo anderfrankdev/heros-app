@@ -4,6 +4,7 @@ export const SearchError = memo(({query}:any) => {
 	
 	return (
 		<div 
+			data-testid="error-msg"
 			id='error-msg'
 			className={`
 				flex items-center
