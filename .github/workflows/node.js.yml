@@ -27,3 +27,38 @@ jobs:
       run: npm install
     - name: 'Test'
       run: npx vitest run
+  
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      # Required to checkout the code
+      contents: read
+      # Required to put a comment into the pull-request
+      pull-requests: write
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: 'Install Node'
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    - name: 'Install Deps'
+      run: npm install
+    - name: "build"
+      run: npm run build
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v1
+      with:
+        path: ./dist
+  
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    steps:
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v1
